@@ -1,0 +1,50 @@
+{
+  "name": "rtc-sipalay-docket-desktop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Professional Court Case Management & Staff Monitoring System for RTC Branch 77.",
+  "author": "Jazzam Ambagan",
+  "type": "module",
+  "main": "electron-main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "desktop": "electron .",
+    "package-win": "npm run build && electron-builder --win",
+    "package-manual": "npm run build && electron-packager . \"RTC_Sipalay_DocketPro\" --platform=win32 --arch=x64 --out=exe --overwrite --icon=assets/icon.png"
+  },
+  "build": {
+    "appId": "com.rtc.sipalay.docket",
+    "productName": "RTC Sipalay DocketPro",
+    "directories": {
+      "output": "v1.0.0-installer"
+    },
+    "asar": false,
+    "files": [
+      "dist/**/*",
+      "electron-main.js",
+      "package.json",
+      "assets/icon.png"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    }
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
+    "electron": "^28.2.0",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@capacitor/app": "^8.0.1",
+    "@capacitor/geolocation": "^8.1.0",
+    "firebase": "^10.9.0"
+  }
+}
